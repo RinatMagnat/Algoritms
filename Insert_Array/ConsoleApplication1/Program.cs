@@ -18,11 +18,29 @@ namespace ConsoleApplication1
             int coun = 0;
             int input;
             while (true) {
+
                 ConsColorText(ConsoleColor.Red, "Введите число");
 
                 string temp = ReadText(ConsoleColor.Yellow);
                 
                 if (temp == "q") { break; }
+                if (temp == "del")
+                {
+                    if (coun == 0)
+                    {
+                        ConsColorText(ConsoleColor.Blue, "Массив пуст");
+                        Console.WriteLine();
+                        continue;
+                    }
+                    else
+                    {
+                        array[coun - 1] = -999;
+                        coun--;
+                        WriteArray(ConsoleColor.Green);
+                        Console.WriteLine();
+                        continue;
+                    }
+                }
                 int.TryParse(temp,out input);
                 if (coun > array.Length - 1)
                 {

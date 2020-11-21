@@ -5,3 +5,10 @@ D:\Project C#\Консольные приложения\ConsoleApplication1\Cons
 D:\Project C#\Консольные приложения\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
 D:\Project C#\Консольные приложения\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojAssemblyReference.cache
 D:\Project C#\Консольные приложения\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojAssemblyReference.cache
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\GitExt\Algoritms\Insert_Array\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
