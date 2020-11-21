@@ -10,20 +10,44 @@ namespace ConsoleApplication1
     {
         enum DoW { Monday,Tuesday,Wewdnesday,Thursday,Friday,Saturday,Sunday};
         static int[] array = { -999, -999, -999, -999, -999, -999, -999, -999, -999 };
-
+        static int coun = 0;
         static void Main(string[] args)
         {
             //string[] st = { "Saha", "Pasha", "Masha", "Petya","Vasia", "Tom", "Beling cat", "Mo", "March"};
            
-            int coun = 0;
+            
             int input;
             while (true) {
 
-                ConsColorText(ConsoleColor.Red, "Введите число");
+                ConsColorText(ConsoleColor.Red, "Введите число или команду");
 
                 string temp = ReadText(ConsoleColor.Yellow);
                 
+                if (temp == "help")
+                {
+                    ConsColorText(ConsoleColor.DarkYellow,"Команда 'del' удаление с конца массива");
+                    ConsColorText(ConsoleColor.DarkYellow, "Команда 'delf' удаление с начала массива");
+                    ConsColorText(ConsoleColor.DarkYellow, "Команда 'q' выход из программы");
+                    continue;
+                }
                 if (temp == "q") { break; }
+                if (temp == "delf")
+                {
+                    if (coun == 0)
+                    {
+                        ConsColorText(ConsoleColor.Blue, "Массив пуст");
+                        continue;
+                    }
+                    else
+                    {
+                        DelFirstElement();
+                        WriteArray(ConsoleColor.Green);
+                        Console.WriteLine();
+                        continue;
+                    }
+                    
+                   
+                }
                 if (temp == "del")
                 {
                     if (coun == 0)
@@ -41,26 +65,32 @@ namespace ConsoleApplication1
                         continue;
                     }
                 }
-                int.TryParse(temp,out input);
-                if (coun > array.Length - 1)
+                if (int.TryParse(temp, out input))
                 {
-                    ConsColorText(ConsoleColor.Blue, "Массив полон запись невозможна");
+                    if (coun > array.Length - 1)
+                    {
+                        ConsColorText(ConsoleColor.Blue, "Массив полон запись невозможна");
+                    }
+                    else
+                    {
+                        Swap(coun);
+                        coun++;
+                        array[0] = input;
+                    }
+                    WriteArray(ConsoleColor.Green);
+                    Console.WriteLine();
                 }
                 else
                 {
-                    Swap(coun);
-                    coun++;
-                    array[0] = input;
-                }          
-                WriteArray(ConsoleColor.Green);
-                Console.WriteLine();  
+                    ConsColorText(ConsoleColor.DarkRed, "Необходимо ввести число");
+                }
 
 
             } 
             Console.ReadKey();
 
         }
-        #region Цвет консоли приглашения
+        #region Цвет консоли приглашения ConsColorText(ConsoleColor cc, string st)
         static void ConsColorText(ConsoleColor cc,string st)
         {
             ConsoleColor temp = Console.ForegroundColor;
@@ -70,7 +100,7 @@ namespace ConsoleApplication1
            
         }
         #endregion
-        #region Цвет вводимого приглашения
+        #region Цвет вводимого приглашения string ReadText(ConsoleColor cc)
         static string ReadText(ConsoleColor cc)
         {
             string temp;
@@ -81,7 +111,7 @@ namespace ConsoleApplication1
             return temp;
         }
         #endregion
-        #region Выводим массив в консоль
+        #region Выводим массив в консоль WriteArray(ConsoleColor cc)
         static void WriteArray(ConsoleColor cc)
         {
             ConsoleColor temp = Console.ForegroundColor;
@@ -102,6 +132,17 @@ namespace ConsoleApplication1
                 array[i] = array[i - 1];
                 array[i - 1] = temp;
             }
+        }
+        #endregion
+        #region Удаляем элемент в начале массива DeleteFirstElement()
+        static void DelFirstElement()
+        {
+            for (int i = 0; i < coun-1; i++)
+            {
+                array[i] = array[i+1];
+                array[i + 1] = -999;
+            }
+            coun--;
         }
         #endregion
 
